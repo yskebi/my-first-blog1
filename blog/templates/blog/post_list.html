@@ -1,45 +1,67 @@
+{% load staticfiles %}
 <html>
 
-    <head>
+<head>
 
-        <title>YS blog</title>
+    <title>Django Girls blog</title>
 
-    </head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-    <body>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-        <div>
-            <h1><a href="">YS Blog</a></h1>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+<body>
+
+    <div class="page-header">
+
+        <h1>
+            <a href="/">Django Girls Blog</a>
+        </h1>
+
+    </div>
+
+
+    <div class="content container">
+
+        <div class="row">
+
+            <div class="col-md-8">
+
+                {% for post in posts %}
+
+                <div class="post">
+
+                    <div class="date">
+
+                        <p>published: {{ post.published_date }}</p>
+
+                    </div>
+
+                    <h1>
+                        <a href="">{{ post.title }}</a>
+                    </h1>
+
+                    <p>{{ post.text|linebreaksbr }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
         </div>
 
-        <div>
-            <p>published: 2017</p>
-            <h2><a href="">HTML5</a></h2>
+    </div>
 
-            <p>웹 문서를 제작하는 데 쓰이는 기본 프로그래밍 언어 HTML(hypertext markup language)의 최신규격
-                
-                HTML5는 웹 문서를 만들기 위한 기본 프로그래밍 언어 ‘HTML(Hyper Text Markup Language)’의 최신규격이다. HTML5는 엑티브X(Active X)를 설치하지 않아도 동일한 기능을 구현할 수 있고, 특히 플래시(flash)나 실버라이트(Silverlight), 자바FX(JAVA FX) 없이도 웹 브라우저(web browser)에서 화려한 그래픽 효과를 낼 수 있다.
-        </div>
 
-        <div>
-            <p>published: 2017</p>
-            <h2><a href="">CSS3</a></h2>
 
-            <p>웹 문서의 전반적인 스타일을 미리 저장해 둔 스타일시트이다. 문서 전체의     일관성을 유지할 수 있고, 세세한 스타일 지정의 필요를 줄어들게 하였다.
-                기존의 HTML은 웹 문서를 다양하게 설계하고 수시로 변경하는데 많은 제약이 따르는데, 이를 보완하기 위해 만들어진 것이 스타일 시트이고 스타일 시트의 표준안이 바로 CSS이다. 간단히 스타일 시트라고도 한다.
-                
-                HTML을 이용해서 웹 페이지를 제작할 경우 전반적인 틀에서 세세한 글꼴 하나 하나를 일일이 지정해주어야 하지만, 웹 페이지의 스타일(작성형식)을 미리 저장해 두면 웹 페이지의 한 가지 요소만 변경해도 관련되는 전체 페이지의 내용이 한꺼번에 변경되므로, 문서 전체의 일관성을 유지할 수 있고 작업 시간도 단축된다.
-                
-                따라서 웹 개발자들은 보다 풍부한 디자인으로 웹을 설계할 수 있고, 글자의 크기, 글자체, 줄간격, 배경 색상, 배열위치 등을 자유롭게 선택하거나 변경할 수 있으며 유지·보수도 간편하게 할 수 있다.
-                </p>
-        </div>
+</body>
 
-        <div>
-            <p>published: 2017</p>
-            <h2><a href="">JavaScript</a></h2>
-
-            <p>JavaScript는 동적으로 컨텐츠를 바꾸고, 멀티미디어를 다루고, 움직이는 이미지등 웹 페이지를 꾸며주도록 하는 프로그래밍 언어이다. 물론, 전부는 아니지만 몇 줄만의 자바스크립트 코드만으로 꽤나 훌륭한 작품을 만들 수 있다.</p>
-        </div>
-    </body>
 </html>
-
